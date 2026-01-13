@@ -1,8 +1,25 @@
-<app-navbar></app-navbar>
 <div class="grid grid-cols-2">
     
-    <div class="bg-green-500 p-2 m-2 rounded-lg">Hola mundo</div>
+    <div class="bg-green-500 p-2 m-2 rounded-lg">
+        <h1 class="text-xl font-bold">Directiva @ if</h1>
+        <hr class="text-lime-50">   
+        <div class="p-2">
+            @if (!isLogeged) {
+                <button class="bg-gray-900 
+                p-1 text-white rounded px-2 
+                cursor-pointer hover:bg-gray-700">Login
+                </button>
+            }@else {
+                <button class="bg-red-900 
+                p-1 text-white rounded px-2 
+                cursor-pointer hover:bg-red-700">Logout
+                </button>
+            }
+        </div>
+    </div>
     
-    <div class="bg-blue-500 p-2 m-2 rounded-lg">Hola mundo</div>
+    <div class="bg-blue-500 p-2 m-2 rounded-lg">
+        <app-card></app-card>
+    </div>
     
 </div>

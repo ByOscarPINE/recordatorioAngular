@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Navbar } from "../../components/share/navbar/navbar";
+import { Card } from "../../components/share/card/card";
 
 @Component({
   selector: 'app-home',
-  imports: [Navbar],
+  imports: [Card],
   templateUrl: './home.html',
   styles: `
     :host {
@@ -12,4 +12,6 @@ import { Navbar } from "../../components/share/navbar/navbar";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Home { }
+export class Home {
+  isLogeged = false;
+ }
