@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
-  imports: [],
+  imports: [RouterLink],
   template: `<header class='flex border-b py-4 px-4 sm:px-10 bg-white font-sans min-h-[70px] tracking-wide relative z-50'>
       <div class='flex flex-wrap items-center gap-4 w-full'>
         <a href="https://readymadeui.com">
@@ -31,11 +32,16 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
                 </a>
               </li>
               <li class='max-lg:border-b max-lg:py-3'>
-                <a href='javascript:void(0)'
-                  class='hover:text-[#007bff] text-[#007bff] block font-bold text-[15px]'>Home</a>
+                <button routerLink="">                  
+                  <a href='javascript:void(0)'
+                    class='hover:text-[#007bff] text-[#007bff] block font-bold text-[15px]'>Home</a>
+                </button>
               </li>
-              <li class='max-lg:border-b max-lg:py-3'><a href='javascript:void(0)'
-                class='hover:text-[#007bff] text-gray-600 block font-bold text-[15px]'>Shop</a>
+              <li class='max-lg:border-b max-lg:py-3'>
+                <button routerLink="funciones">
+                  <a href='javascript:void(0)'
+                  class='hover:text-[#007bff] text-gray-600 block font-bold text-[15px]'>Funciones</a>
+                </button>
               </li>
               <li class='max-lg:border-b max-lg:py-3'><a href='javascript:void(0)'
                 class='hover:text-[#007bff] text-gray-600 block font-bold text-[15px]'>Sale</a>
@@ -83,4 +89,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Navbar { }
+export class Navbar {
+
+ }

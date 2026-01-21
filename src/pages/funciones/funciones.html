@@ -1,0 +1,14 @@
+    
+    <div class="bg-green-500 p-2 m-2 rounded-lg">
+        <h1 class="text-xl font-bold">Funcion Parametros Obligatorios</h1>
+        <hr class="text-lime-50">   
+        <div class="p-2">
+            <p>Area del Triangulo: {{area_triangulo}}</p>
+        </div>
+        <p>Altura del Triangulo: <input type="number" [value]="altura_triangulo" (input)="altura_triangulo = +$any($event.target).value" class="p-1 rounded mx-2"/></p>
+        <p>Base del Triangulo: <input type="number" [value]="base_triangulo" (input)="base_triangulo = +$any($event.target).value" class="p-1 rounded mx-2"/></p>
+        <button (click)="sumar(base_triangulo, altura_triangulo)" class="bg-gray-900 
+                p-1 text-white rounded px-2 
+                cursor-pointer hover:bg-gray-700">Calcular Area
+        </button>
+    </div>

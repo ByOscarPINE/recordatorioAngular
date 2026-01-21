@@ -19,7 +19,56 @@
     </div>
     
     <div class="bg-blue-500 p-2 m-2 rounded-lg">
-        <app-card></app-card>
+        <app-card [price]="chetos.price" [title]="'Cheetos'" [stock]="chetos.stock"></app-card>
     </div>
+
+    <div class="bg-gray-500 p-2 m-2 rounded-lg">
+        <h1 class="text-xl font-bold">Directiva @ for</h1>
+        <hr>
+        @for (item of videojuegos; track $index) {
+
+            <button class="bg-purple-900 p-2 rounded-xl mt-2 hover:bg-gray-200 hover:text-black text-zinc-50
+            font-bold w-1/2 m-1">{{item}}</button>
+        }@empty {
+            <h1 class="text-2xl text-center">No hay videojuegos</h1>
+        }
+        <button (click)="eliminarVideojuegos()" class="w-full bg-pink-900 p-2 rounded-xl mt-2 hover:bg-gray-200 hover:text-black text-zinc-50
+        font-bold w-1/2 m-1">Eliminar videojuegos..</button>
+        
+    </div>
+
+    <div class="bg-yellow-500 p-2 m-2 rounded-lg">
+        <h1 class="text-xl font-bold">Directiva @ for - Con array de objetos</h1>
+        <hr>
+        <ol>
+            @for (item of misContactos; track $index) {
+                <li class="border-2 mt-1 p-2 rounded text-lg">{{item.name}} - {{item.email}} - {{item.phone}}
+                    @for (social of item.socialMedia; track $index) {
+                        <span class="bg-blue-400 m-1 p-1 rounded">{{social}}</span>
+                    }@empty {
+                        <span class="bg-gray-400 m-1 p-1 rounded">No social media</span>
+                    }
+                </li>
+            }
+        </ol>
+    </div>
+
+    <div class="bg-yellow-500 p-2 m-2 rounded-lg">
+        <h1 class="text-xl font-bold">Directiva @ switch</h1>
+        <hr>
+        @switch (chetos.stock) {
+            @case (0) {
+                <p class="text-red-900 font-bold">No hay stock disponible</p>
+            }
+            @case (1) {
+                <p class="text-yellow-900 font-bold">Queda 1 solo en stock</p>
+            }
+            @default {
+                <p class="text-green-900 font-bold">Hay varios en stock</p>
+            }
+        }
+    </div>
+
     
+
 </div>
