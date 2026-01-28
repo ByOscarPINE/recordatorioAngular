@@ -1,0 +1,13 @@
+<div class="grid grid-cols-2 m-1 gap-1.5">
+  <app-product-card></app-product-card>
+  <app-product-card></app-product-card>
+  <app-product-card></app-product-card>
+  <app-product-card></app-product-card>
+</div>
+
+<!-- aqui  se cargaran los comentarios -->
+@defer(on viewport) {
+    <app-comment-box></app-comment-box>
+}@placeholder {
+    <h1 class="text-center"> Aqui se cargaran los comentarios</h1>
+}

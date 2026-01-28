@@ -43,8 +43,11 @@ import { RouterLink } from "@angular/router";
                   class='hover:text-[#007bff] text-gray-600 block font-bold text-[15px]'>Funciones</a>
                 </button>
               </li>
-              <li class='max-lg:border-b max-lg:py-3'><a href='javascript:void(0)'
-                class='hover:text-[#007bff] text-gray-600 block font-bold text-[15px]'>Sale</a>
+              <li class='max-lg:border-b max-lg:py-3'>
+                <button routerLink="defers">
+                  <a href='javascript:void(0)'
+                  class='hover:text-[#007bff] text-gray-600 block font-bold text-[15px]'>Defers</a>
+                </button>
               </li>
               <li class='max-lg:border-b max-lg:py-3'><a href='javascript:void(0)'
                 class='hover:text-[#007bff] text-gray-600 block font-bold text-[15px]'>Manage</a>

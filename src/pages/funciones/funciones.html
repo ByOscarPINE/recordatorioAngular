@@ -1,14 +1,145 @@
+<div class="grid grid-cols-4">
     
+
     <div class="bg-green-500 p-2 m-2 rounded-lg">
         <h1 class="text-xl font-bold">Funcion Parametros Obligatorios</h1>
-        <hr class="text-lime-50">   
+        <hr class="text-lime-50">
         <div class="p-2">
             <p>Area del Triangulo: {{area_triangulo}}</p>
         </div>
-        <p>Altura del Triangulo: <input type="number" [value]="altura_triangulo" (input)="altura_triangulo = +$any($event.target).value" class="p-1 rounded mx-2"/></p>
-        <p>Base del Triangulo: <input type="number" [value]="base_triangulo" (input)="base_triangulo = +$any($event.target).value" class="p-1 rounded mx-2"/></p>
+        <p>Altura del Triangulo: <input type="number" [value]="altura_triangulo"
+                (input)="altura_triangulo = +$any($event.target).value" class="p-1 rounded mx-2" /></p>
+        <p>Base del Triangulo: <input type="number" [value]="base_triangulo"
+                (input)="base_triangulo = +$any($event.target).value" class="p-1 rounded mx-2" /></p>
         <button (click)="sumar(base_triangulo, altura_triangulo)" class="bg-gray-900 
-                p-1 text-white rounded px-2 
-                cursor-pointer hover:bg-gray-700">Calcular Area
+                    p-1 text-white rounded px-2 
+                    cursor-pointer hover:bg-gray-700">Calcular Area
         </button>
     </div>
+
+    <div class="bg-gray-500 p-2 m-2 rounded-lg">
+        <h1 class="text-xl font-bold">Mostrar alumnos consola</h1>
+        <hr class="text-lime-50">
+        <button (click)="mostrarAlumnos()" class="bg-gray-900 
+                    p-1 text-white rounded px-2 
+                    cursor-pointer hover:bg-gray-700">Mostrar Alumnos
+        </button>
+    </div>
+
+    <div class="bg-pink-400 p-2 m-2 rounded-lg">
+        <h1 class="text-xl font-bold">Alunnos</h1>
+        <hr class="text-lime-50">
+        <div class="p-2">
+            <li>
+                @for (item of alumnos; track $index) {
+            <li class="border-2 mt-1 p-2 rounded text-lg">{{item}}
+            </li>
+            }
+            </li>
+        </div>
+        <button (click)="reprobarAlumnos()" class="bg-gray-900 
+                    p-1 text-white rounded px-2 
+                    cursor-pointer hover:bg-gray-700">Reprobar Alumnos
+        </button>
+    </div>
+
+        <div class="bg-purple-500 p-2 m-2 rounded-lg">
+        <h1 class="text-xl font-bold">Alunnos</h1>
+        <hr class="text-lime-50">
+        <div class="p-2">
+            <li>
+                @for (item of alumnos; track $index) {
+            <li class="border-2 mt-1 p-2 rounded text-lg">{{item}}
+            </li>
+            }
+            </li>
+        </div>
+        <button (click)="recuperarAlumnos()" class="bg-gray-900 
+                    p-1 text-white rounded px-2 
+                    cursor-pointer hover:bg-gray-700">Recuperar Alumnos
+        </button>
+    </div>  
+
+    <div class="bg-orange-300 p-2 m-2 rounded-lg">
+        <h1 class="text-xl font-bold">Mayor</h1>
+        <hr class="text-lime-50">
+        <div class="p-2">
+            <p>Numero mayor: {{n_mayor}}</p>
+        </div>
+        <p>NUmero 1: {{n_1}}</p>
+        <p>NUmero 2: {{n_2}}</p>
+        <button (click)="mayorQue(890,9)" class="bg-gray-900 
+                    p-1 text-white rounded px-2 
+                    cursor-pointer hover:bg-gray-700">Mayor
+        </button>
+    </div>  
+
+    <div class="bg-yellow-300 p-2 m-2 rounded-lg">
+        <h1 class="text-xl font-bold">Saludar</h1>
+        <hr class="text-lime-50">
+        <div class="p-2">
+            <p>{{saludo}}</p>
+        </div>
+        <!-- <p>Altura del Triangulo: <input type="number" [value]="altura_triangulo"
+                (input)="altura_triangulo = +$any($event.target).value" class="p-1 rounded mx-2" /></p>
+        <p>Base del Triangulo: <input type="number" [value]="base_triangulo"
+                (input)="base_triangulo = +$any($event.target).value" class="p-1 rounded mx-2" /></p> -->
+        <button (click)="saludar('Ana')" class="bg-gray-900 
+                    p-1 text-white rounded px-2 
+                    cursor-pointer hover:bg-gray-700">Saludar
+        </button>
+    </div>
+
+    <div class="bg-blue-300 p-2 m-2 rounded-lg">
+        <h1 class="text-xl font-bold">Suma</h1>
+        <hr class="text-lime-50">
+        <div class="p-2">
+            <p>{{suma2}}</p>
+        </div>
+        <!-- <p>Altura del Triangulo: <input type="number" [value]="altura_triangulo"
+                (input)="altura_triangulo = +$any($event.target).value" class="p-1 rounded mx-2" /></p>
+        <p>Base del Triangulo: <input type="number" [value]="base_triangulo"
+                (input)="base_triangulo = +$any($event.target).value" class="p-1 rounded mx-2" /></p> -->
+        <button (click)="sumatorioa(5, 10)" class="bg-gray-900 
+                    p-1 text-white rounded px-2 
+                    cursor-pointer hover:bg-gray-700">Calcular
+        </button>
+    </div>
+
+    <div class="bg-red-300 p-2 m-2 rounded-lg">
+        <h1 class="text-x   l font-bold">Descuento</h1>
+        <hr class="text-lime-50">
+        <p>Precio: <input type="number" [value]="precio"
+                (input)="precio = +$any($event.target).value" class="p-1 rounded mx-2" /></p>
+        <p>Descuento <input type="number" [value]="descuento_valor"
+                (input)="descuento_valor = +$any($event.target).value" class="p-1 rounded mx-2" /></p>
+        <p>Total: {{total}}</p>
+        <button (click)="descuento(100,90)" class="bg-gray-900 
+                    p-1 text-white rounded px-2 
+                    cursor-pointer hover:bg-gray-700">Calcular
+        </button>
+    </div>  
+    
+    <div class="bg-green-300 p-2 m-2 rounded-lg">
+        <h1 class="text-xl font-bold">Parametros por defecto</h1>
+        <hr class="text-lime-50">
+        <p>Edad: {{edad}}</p>
+        <button (click)="esMayorDeEdad()" class="bg-gray-900 
+                    p-1 text-white rounded px-2 
+                    cursor-pointer hover:bg-gray-700">Calcular
+        </button>
+    </div>
+    
+    <div class="bg-gray-300 p-2 m-2 rounded-lg">
+        <h1 class="text-xl font-bold">Parametros por defecto</h1>
+        <hr class="text-lime-50">
+        <p>Pais: {{pais}}</p>
+        <button (click)="esPais('España')" class="bg-gray-900 
+                    p-1 text-white rounded px-2 
+                    cursor-pointer hover:bg-gray-700">Estado
+        </button>
+    </div>
+</div>
+
+
+
