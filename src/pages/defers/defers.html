@@ -1,13 +1,74 @@
-<div class="grid grid-cols-2 m-1 gap-1.5">
-  <app-product-card></app-product-card>
-  <app-product-card></app-product-card>
-  <app-product-card></app-product-card>
-  <app-product-card></app-product-card>
-</div>
+<div class="m-1">
 
-<!-- aqui  se cargaran los comentarios -->
-@defer(on viewport) {
-    <app-comment-box></app-comment-box>
-}@placeholder {
-    <h1 class="text-center"> Aqui se cargaran los comentarios</h1>
-}
+    @defer(on timer(3000ms)){
+        <app-banner></app-banner>
+    } @placeholder {
+        <h1 class="text-center text-zinc-400">
+        Espera un momento
+        </h1>
+    }
+    <div class="grid grid-cols-2 gap-1.5">
+        @defer (on idle) {
+
+            <app-product-card></app-product-card>
+        }@placeholder {
+            <h1>Cargando...</h1>
+        }
+        @defer (on hover) {
+
+            <app-product-card></app-product-card>
+        }@placeholder {
+            <h1>Pasa el mouse...</h1>
+        }
+        <app-product-card></app-product-card>
+        <app-product-card></app-product-card>
+    </div>
+
+        <button #btnCupones class="bg-red-300 p-2 rounded-lg m-2">
+            Ver cupones
+        </button>
+    
+        @defer(on interaction(btnCupones)) {
+            <div class="grid grid-cols-2 gap-1.5">
+                @for (item of cupones; track $index) {
+                    <app-cupon-card
+                    [name]="item.name"
+                    [discountPercentage]="item.discountPercentage"
+                    [expiryDate]="item.expiryDate"
+                    ></app-cupon-card>
+                }
+            </div>
+        }
+    
+            
+        <button #btnCuponesPremium class="bg-yellow-300 p-2 rounded-lg m-2">
+            Ver cupones
+        </button>
+    
+        @defer(on interaction(btnCuponesPremium); when isPremium) {
+            <div class="grid grid-cols-2 gap-1.5">
+                @for (item of cuponesPremium; track $index) {
+                    <app-cupon-card
+                    [name]="item.name"
+                    [discountPercentage]="item.discountPercentage"
+                    [expiryDate]="item.expiryDate"
+                    ></app-cupon-card>
+                }
+            </div>
+        }@placeholder {
+            <h1 class="text-center text-zinc-400">
+            Contenido para usuarios premium
+            </h1>
+        }@error {
+            <h1>No tienes acceso</h1>
+        }
+
+    
+    <!-- aqui  se cargaran los comentarios -->
+    @defer(on viewport) {
+        <app-comment-box></app-comment-box>
+    }@placeholder {
+        <h1 class="text-center"> Aqui se cargaran los comentarios</h1>
+    }
+    
+</div>

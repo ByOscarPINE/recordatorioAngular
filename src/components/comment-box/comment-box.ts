@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'app-comment-box',
   imports: [],
   template: `
-  <div class="comment-box w-full max-w-2xl mx-auto">
+  <div class="comment-box w-full max-w-2xl mx-auto m-1">
     <div class="comment-input-row">
       <img class="avatar" src="https://www.gravatar.com/avatar/?d=mp&s=48" alt="avatar" />
       <div class="input-area">
