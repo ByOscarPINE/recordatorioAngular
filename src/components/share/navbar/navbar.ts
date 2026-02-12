@@ -49,9 +49,14 @@ import { RouterLink } from "@angular/router";
                   class='hover:text-[#007bff] text-gray-600 block font-bold text-[15px]'>Defers</a>
                 </button>
               </li>
-              <li class='max-lg:border-b max-lg:py-3'><a href='javascript:void(0)'
-                class='hover:text-[#007bff] text-gray-600 block font-bold text-[15px]'>Manage</a>
+              <li class='max-lg:border-b max-lg:py-3'>
+                <button routerLink="formularios-reactivos">
+                  <a href='javascript:void(0)'
+                  class='hover:text-[#007bff] text-gray-600 block font-bold text-[15px]'>Formilarios reactios</a>
+
+                </button>
               </li>
+
             </ul>
 
             <ul class='lg:flex lg:items-center ml-auto max-lg:block lg:space-x-8 ml-auto'>
@@ -69,8 +74,6 @@ import { RouterLink } from "@angular/router";
         <div class="border-l border-[#333] h-6 max-lg:hidden"></div>
 
         <div class='flex items-center ml-auto space-x-6'>
-          <a href='javascript:void(0)' class='hover:text-[#007bff] text-gray-600 block font-bold text-[15px]'>Log
-            in</a>
           <button
             class='px-4 py-2.5 text-sm rounded font-bold text-white border-2 border-[#1d294f] bg-[#1d294f] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#1d294f]'>Start
             free trial</button>

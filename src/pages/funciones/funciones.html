@@ -139,6 +139,23 @@
                     cursor-pointer hover:bg-gray-700">Estado
         </button>
     </div>
+
+        <div class="bg-gray-300 p-2 m-2 rounded-lg h-96">
+        <h1 class="text-xl font-bold">Emojie</h1>
+        <hr class="text-lime-50">
+        <div class="grid grid-cols-2">
+            <div>
+                @for (item of emojies; track $index) {
+                    <li>{{item}}
+                    </li>
+                }
+            </div>
+        <button (click)="agregarEmojie()" class="bg-gray-900 
+                    p-1 text-white rounded px-2 
+                    cursor-pointer hover:bg-gray-700">Agregar Emojie
+        </button>
+        </div>
+    </div>
 </div>
 
 

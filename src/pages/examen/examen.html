@@ -1,0 +1,42 @@
+<div class="grid grid-cols-4">
+    
+    @defer(on timer(5000ms)){
+        <app-explosion></app-explosion>
+    } @placeholder {
+        <img src="https://www.shutterstock.com/image-vector/realistic-bomb-burning-fuse-emitting-600nw-2474308221.jpg">
+    }
+    <div class="bg-gray-500 p-2 m-2 rounded-lg">
+        <h1 class="text-xl font-bold">Mostrar usuarios</h1>
+        <hr class="text-lime-50">
+        @for (item of usuarios; track $index) {
+            <div class="mt-2 p-2 bg-gray-200 rounded-lg">
+                <p><strong>Nombre:</strong> {{item.name}}</p>
+                <p><strong>Edad:</strong> {{item.edad}}</p>
+                <p><strong>Activo:</strong> {{item.activo}}</p>
+            </div>
+        }
+        <button (click)="searchUser(3)"  class="bg-gray-900 
+                    p-1 text-white rounded px-2 
+                    cursor-pointer hover:bg-gray-700">Buscar usuario
+        </button>
+    </div>
+
+        <div class="bg-gray-500 p-2 m-2 rounded-lg">
+        <h1 class="text-xl font-bold">Tareas</h1>
+        <hr class="text-lime-50">
+        @for (item of tareas; track $index) {
+            <div class="mt-2 p-2 bg-gray-200 rounded-lg">
+                <p><strong>Tarea:</strong> {{item.tarea}}</p>
+                <p><strong>Descripción:</strong> {{item.description}}</p>
+                <p><strong>Activo:</strong> {{item.done}}</p>
+            </div>
+        }
+        <button (click)="mostrarTareas()"  class="bg-gray-900 
+                    p-1 text-white rounded px-2 
+                    cursor-pointer hover:bg-gray-700">Tareas
+        </button>
+    </div>
+</div>
+
+
+

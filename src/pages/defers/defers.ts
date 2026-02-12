@@ -4,6 +4,7 @@ import { Card } from "../../components/share/card/card";
 import { CommentBox } from "../../components/comment-box/comment-box";
 import { CuponCard } from "../../components/cupon-card/cupon-card";
 import { Banner } from "../../components/banner/banner";
+import { Register } from "../../components/register/register";
 
 interface Cupon {
   name: string;
@@ -16,7 +17,8 @@ interface Cupon {
     ProductCard,
     CommentBox,
     CuponCard,
-    Banner
+    Banner,
+    Register
 ],
   templateUrl: './defers.html',
   styles: `

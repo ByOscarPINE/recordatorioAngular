@@ -7,6 +7,16 @@
         Espera un momento
         </h1>
     }
+
+
+        <button #btnRegister class="bg-red-300 p-2 rounded-lg m-2">
+            Registrarme
+    </button>
+        @defer(on interaction(btnRegister)) {
+            <div class="">
+                  <app-register></app-register>
+            </div>
+        }
     <div class="grid grid-cols-2 gap-1.5">
         @defer (on idle) {
 

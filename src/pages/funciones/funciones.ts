@@ -97,4 +97,10 @@ export class Funciones {
   esPais(pais = 'Mexico') {
     this.pais = pais;
   }
+
+  emojies : String[] = ['😀'];
+
+  agregarEmojie() {
+    this.emojies.length < 10 ? this.emojies.push(this.emojies[0]) : null;
+  }
 }
