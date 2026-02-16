@@ -1,6 +1,7 @@
 import { JsonPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { min } from 'rxjs';
 
 @Component({
   selector: 'app-reactive-forms',
@@ -18,48 +19,46 @@ export class ReactiveForms {
   formProduct!: FormGroup;
   formEmpleado!: FormGroup;
 
-  validatorMessage = {
-    name: [
-      { type: 'required', message: 'El nombre es requerido' }
-    ],
-    price: [
-      { type: 'required', message: 'El precio es requerido' },
-      { type: 'min', message: 'El precio debe ser mayor a 0' }
-    ],
-    stock: [
-      { type: 'required', message: 'El stock es requerido' },
-      { type: 'min', message: 'El stock debe ser mayor a 0' }
-    ],
-    perfil:[
-      { type: 'required', message: 'El perfil es requerido' },
-      { type: 'minlength', message: 'El perfil debe tener al menos 30 caracteres' }
-    ],
-    puesto:[
-      { type: 'required', message: 'El puesto es requerido' },
-    ],
-    edad:[
-      { type: 'required', message: 'La edad es requerida' },
-      { type: 'min', message: 'La edad debe ser mayor a 18' },
-      { type: 'max', message: 'La edad debe ser menor a 70' }
-    ],
-    email:[
-      { type: 'required', message: 'El email es requerido' },
-    ],
-    generate:[
-      { type: 'required', message: 'La cantidad a generar es requerida' },
-      { type: 'min', message: 'La cantidad a generar debe ser mayor a 1000' },
-    ]
+  validatorMessages: any = {
+    name: {
+      required: "El nombre es requerido",
+      minlength: "El nombre debe tener al menos 3 caracteres"
+    },
+    perfil: {
+      required: "El perfil es requerido",
+      minlength: "El perfil debe tener al menos 30 caracteres"
+    },
+    puesto: {
+      required: "El puesto es requerido"  
+    },
+    edad: {
+      required: "La edad es requerida",
+      min: "La edad mínima es 18 años",
+      max: "La edad máxima es 70 años"
+    },
+    email: {
+      required: "El email es requerido"
+    },
+    generate: {
+      required: "El generate es requerido",
+      min: "El generate debe ser mayor a 1000"
+    }
   }
 
-  getErrorMessage(control: string){
-    const errors = this.formEmpleado.get(control)?.errors;
-    if(errors){
-      const firstKey = Object.keys(errors)[0];
-      const validator = this.validatorMessage[control as keyof typeof this.validatorMessage].find(v => v.type === firstKey);
-      return validator ? validator.message : '';
+  getErrorMessage(ctrl: string){
+    const control = this.formEmpleado.get(ctrl);
+    if(!control || !control.errors || !control.touched){
+      return "";
     }
-    return '';
+    const errors = control.errors;
+    for (const errorKey in errors) {
+      if(this.validatorMessages[ctrl][errorKey]){
+        return this.validatorMessages[ctrl][errorKey];
+      }
+    }
+    return  "";
   }
+  
 
   constructor() {
     this.formProduct = this.fb.group({
