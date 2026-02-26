@@ -56,6 +56,13 @@ import { RouterLink } from "@angular/router";
 
                 </button>
               </li>
+              <li class='max-lg:border-b max-lg:py-3'>
+                <button routerLink="form">
+                  <a href='javascript:void(0)'
+                  class='hover:text-[#007bff] text-gray-600 block font-bold text-[15px]'>Formularios</a>
+
+                </button>
+              </li>
 
             </ul>
 

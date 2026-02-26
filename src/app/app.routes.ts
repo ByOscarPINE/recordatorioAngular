@@ -4,6 +4,7 @@ import { Funciones } from '../pages/funciones/funciones';
 import { Defers } from '../pages/defers/defers';
 import { ReactiveForms } from '../pages/reactiveForms/reactiveForms';
 import { Examen } from '../pages/examen/examen';
+import { Form } from '../pages/form/form';
 
 export const routes: Routes = [
     {
@@ -13,6 +14,10 @@ export const routes: Routes = [
     {
         path : 'funciones',
         component: Funciones
+    },
+    {
+        path : 'form',
+        component: Form
     },
     {
         path : 'defers',

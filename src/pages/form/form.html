@@ -1,0 +1,123 @@
+    <div class="bg-gray-500 p-2 m-2 rounded-lg">
+        <h1 class="text-2xl font-extrabold mb-4 text-white">Formularios Reactivos</h1>
+        <div class="bg-white/90 p-6 rounded-lg shadow-lg">
+            <form [formGroup]="formProduct" (ngSubmit)="saveProduct()"  class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex flex-col">
+                    <label class="text-sm font-medium mb-1">Nombre</label>
+                    <input
+                        type="text"
+                        formControlName="name"
+                        placeholder="Nombre del producto"
+                        class="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
+                    />
+                    <p class="text-sm text-red-400">
+                        {{getErrorMessage('name')}}
+                    </p>
+                </div>
+
+                <div class="flex flex-col">
+                    <label class="text-sm font-medium mb-1">Precio</label>
+                    <input
+                        type="number"
+                        formControlName="price"
+                        placeholder="0.00"
+                        class="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
+                    />
+                    <p class="text-sm text-red-400">
+                        {{getErrorMessage('price')}}
+                    </p>
+                </div>
+
+                <div class="md:col-span-2 flex flex-col">
+                    <label class="text-sm font-medium mb-1">Descripción</label>
+                    <textarea
+                        formControlName="description"
+                        rows="3"
+                        placeholder="Escribe una breve descripción..."
+                        class="p-2 border rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-green-400"
+                    ></textarea>
+                    <p class="text-sm text-red-400">
+                        {{getErrorMessage('description')}}
+                    </p>
+                    <!-- <span *ngIf="formProduct.get('description')?.touched && formProduct.get('description')?.invalid" class="text-red-500 text-xs mt-1">
+                        Agrega una descripción
+                    </span> -->
+                </div>
+
+                <div class="flex flex-col">
+                    <label class="text-sm font-medium mb-1">Stock</label>
+                    <input
+                        type="number"
+                        formControlName="stock"
+                        placeholder="Cantidad disponible"
+                        class="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
+                    />
+                    <p class="text-sm text-red-400">
+                        {{getErrorMessage('stock')}}
+                    </p>
+                    <!-- <span *ngIf="formProduct.get('stock')?.touched && formProduct.get('stock')?.invalid" class="text-red-500 text-xs mt-1">
+                        Stock inválido
+                    </span> -->
+                </div>
+
+                <div class="flex flex-col">
+                    <label class="text-sm font-medium mb-1">Precio Entrada</label>
+                    <input
+                        type="number"
+                        formControlName="precioEntrada"
+                        placeholder="Precio de entrada"
+                        class="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
+                    />
+                    <p class="text-sm text-red-400">
+                        {{getErrorMessage('precioEntrada')}}
+                    </p>
+                    <!-- <span *ngIf="formProduct.get('stock')?.touched && formProduct.get('stock')?.invalid" class="text-red-500 text-xs mt-1">
+                        Stock inválido
+                    </span> -->
+                </div>
+
+                <div class="flex flex-col">
+                    <label class="text-sm font-medium mb-1">Precio Salida</label>
+                    <input
+                        type="number"
+                        formControlName="precioSalida"
+                        placeholder="Precio de salida"
+                        class="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
+                    />
+                    <p class="text-sm text-red-400">
+                        {{getErrorMessage('precioSalida')}}
+                    </p>
+                    <!-- <span *ngIf="formProduct.get('stock')?.touched && formProduct.get('stock')?.invalid" class="text-red-500 text-xs mt-1">
+                        Stock inválido
+                    </span> -->
+                </div>
+
+                <div class="flex flex-col">
+                    <label class="text-sm font-medium mb-1">Codigo</label>
+                    <input
+                        type="number"
+                        formControlName="codigo"
+                        placeholder="Codigo del producto"
+                        class="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
+                    />
+                    <p class="text-sm text-red-400">
+                        {{getErrorMessage('codigo')}}
+                    </p>
+                    <!-- <span *ngIf="formProduct.get('stock')?.touched && formProduct.get('stock')?.invalid" class="text-red-500 text-xs mt-1">
+                        Stock inválido
+                    </span> -->
+                </div>
+
+                <div class="md:col-span-2">
+                    <button
+                        type="submit"
+                        [disabled]="formProduct.invalid"
+                        class="w-full bg-green-600 text-white py-2 rounded-md font-semibold hover:bg-green-500 disabled:opacity-50"
+                    >
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>

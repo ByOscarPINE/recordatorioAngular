@@ -75,6 +75,7 @@ export class ReactiveForms {
       email: [,Validators.required],
       generate: [,[Validators.required, Validators.min(1000)]],
     })
+
   }
 
   saveProduct(){
