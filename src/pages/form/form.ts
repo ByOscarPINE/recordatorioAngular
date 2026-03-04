@@ -1,6 +1,18 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, ɵInternalFormsSharedModule } from '@angular/forms';
 import { price_valid } from '../../validators/price_valid';
+import { date_valid } from '../../validators/date_valid';
+
+export interface Producto {
+  name: string;
+  description: string;
+  price: number;
+  stock: number;
+  code: string;
+  precioEntrada: number;
+  precioSalida: number;
+  fechaVencimiento: string;
+}
 
 @Component({
   selector: 'app-form',
@@ -16,19 +28,25 @@ import { price_valid } from '../../validators/price_valid';
 export class Form {
   fb = inject(FormBuilder)
   formProduct!: FormGroup;
+  productos: Producto[] = [];
   
+  hoy = new Date();
   constructor() {
     this.formProduct = this.fb.group({
       name: ['',[Validators.required, Validators.minLength(3)]],
       description: ['', [Validators.required, Validators.minLength(15)]],
-      price: [,[  Validators.required, Validators.min(1000)]],
-      stock: [,[Validators.required,Validators.min(1), Validators.max(1000)]],
-      precioEntrada: [,[Validators.required, Validators.min(1)]],
-      precioSalida: [,[Validators.required, Validators.min(1)]],
-      codigo: ['',Validators.required]
+      price: [[Validators.required, Validators.min(1000)]],
+      stock: [[Validators.required, Validators.min(1), Validators.max(1000)]],
+      precioEntrada: [[Validators.required, Validators.min(1)]],
+      precioSalida: [[Validators.required, Validators.min(1)]],
+      codigo: ['',[Validators.required]],
+      fechaVencimiento: ['',[Validators.required]],
     },
     {
-      validators: price_valid('precioEntrada', 'precioSalida')
+      validators: [
+        price_valid('precioEntrada', 'precioSalida'),
+        date_valid('fechaVencimiento', this.hoy)
+      ]
     })
   }
   validatorMessages: any = {
@@ -56,7 +74,11 @@ export class Form {
     },
     codigo: {
       required: "El código es requerido",
-    }
+    },
+    fechaVencimiento: {
+      required: "La fecha de vencimiento es requerida",
+      dateComparasion: "La fecha de vencimiento debe ser mayor a la fecha actual"
+    },
   }
 
   getErrorMessage(ctrl: string){
@@ -78,9 +100,11 @@ export class Form {
   saveProduct(){
     if(this.formProduct.invalid){
       this.formProduct.markAllAsTouched()
-      return;
+      console.log("Formulario incorrecto", this.formProduct.value);
     }else{
+      this.productos.push(this.formProduct.value);
       console.log(this.formProduct.value);
+      this.formProduct.reset();
     }
   }
 

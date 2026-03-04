@@ -1,3 +1,4 @@
+    <div class="grid grid-cols-2">
     <div class="bg-gray-500 p-2 m-2 rounded-lg">
         <h1 class="text-2xl font-extrabold mb-4 text-white">Formularios Reactivos</h1>
         <div class="bg-white/90 p-6 rounded-lg shadow-lg">
@@ -95,7 +96,7 @@
                 <div class="flex flex-col">
                     <label class="text-sm font-medium mb-1">Codigo</label>
                     <input
-                        type="number"
+                        type="text"
                         formControlName="codigo"
                         placeholder="Codigo del producto"
                         class="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
@@ -107,11 +108,25 @@
                         Stock inválido
                     </span> -->
                 </div>
+                <div class="flex flex-col">
+                    <label class="text-sm font-medium mb-1`">Fecha de vencimeinto</label>
+                    <input
+                        type="date"
+                        formControlName="fechaVencimiento"
+                        placeholder="Fecha de vencimiento del producto"
+                        class="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
+                    />
+                    <p class="text-sm text-red-400">
+                        {{getErrorMessage('fechaVencimiento')}}
+                    </p>
+                    <!-- <span *ngIf="formProduct.get('stock')?.touched && formProduct.get('stock')?.invalid" class="text-red-500 text-xs mt-1">
+                        Stock inválido
+                    </span> -->
+                </div>
 
                 <div class="md:col-span-2">
                     <button
                         type="submit"
-                        [disabled]="formProduct.invalid"
                         class="w-full bg-green-600 text-white py-2 rounded-md font-semibold hover:bg-green-500 disabled:opacity-50"
                     >
                         Guardar
@@ -119,5 +134,26 @@
                 </div>
             </form>
         </div>
+        
+
+    </div>
+    <div>
+    <ul>
+    <h1>Productos</h1>
+    @for (producto of productos; track $index) {
+        <div
+            class="bg-white border border-gray-200 shadow-md w-full max-w-sm rounded-lg overflow-hidden mx-auto mt-4">
+            <div class="p-6">
+                <div>
+                    <h3 class="text-lg font-semibold">{{ producto.name}}</h3>
+                </div>
+                <button type="button"
+                    class="mt-6 px-5 py-2 rounded-md text-white text-sm font-medium tracking-wider border-none outline-none bg-blue-600 hover:bg-blue-700 cursor-pointer">View</button>
+            </div>
+        </div>
+    }
+    </ul>
+    </div>
+
 
     </div>

@@ -54,6 +54,11 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "headers": {
+              "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline';"
+            }
+          },
           "configurations": {
             "production": {
               "buildTarget": "recordatorioAngular:build:production"
